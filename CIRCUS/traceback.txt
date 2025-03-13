@@ -1,0 +1,24 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 177, in script call
+    call flash_card_game pass (game_time=30.0)
+  File "game/script.rpy", line 174, in script
+    menu:
+IndexError: list index out of range
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 177, in script call
+    call flash_card_game pass (game_time=30.0)
+  File "game/script.rpy", line 174, in script
+    menu:
+  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/ast.py", line 1635, in execute
+    next_node(self.items[choice][2][0])
+IndexError: list index out of range
+
+macOS-14.5-arm64-arm-64bit arm64
+Ren'Py 8.3.6.25022803
+CIRCUS 1.0
+Wed Mar 12 02:56:04 2025

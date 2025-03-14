@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 180: Line is indented, but the preceding call statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    show fokusnik normal
-    ^
+File "game/first_chapter.rpy", line 125: expected statement.
+    name = "Луиджи" 
+         ^
+
+File "game/first_chapter.rpy", line 126: expected statement.
+    itan.name = "Луиджи"
+              ^
 
 Ren'Py Version: Ren'Py 8.3.6.25022803
-Wed Mar 12 02:48:44 2025
+Fri Mar 14 02:02:55 2025

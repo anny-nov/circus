@@ -1,80 +1,85 @@
 ##### The game screen
 screen shop_screen:  
+
     add "bg/bg shop.png" xalign 0.5 yalign 0.5:
         size (1920, 1080)
 
-    text "Money = [money]"
+    hbox:
+        add "shop/coin.png" xalign 50 yalign 50:
+            size (50, 50)
+        text "Money = [money]" xalign 50 yalign 50
+
 
     imagebutton:
-        xpos 1600 
+        xpos 1700 
         ypos 50
-        idle "shop/back_button.png"
-        hover "shop/back_button.png"
+        idle Transform("shop/back_button.png", zoom=0.3)  
+        hover Transform("shop/back_button.png", zoom=0.3)
         action Jump("fokusnik_pressed")
 
     imagebutton:
         xpos 100 
-        ypos 300
-        idle "shop/duda.png"
-        hover "shop/duda-2.png"
-        action Jump("buy_item")
+        ypos 200
+        idle Transform("shop/duda.png", zoom=2)  
+        hover Transform("shop/duda-2.png", zoom=2)
+        action [SetVariable("item", "duda"), Jump("buy_item")]
 
     imagebutton:
-        xpos 500
-        ypos 300
-        idle "shop/rice.png"
-        hover "shop/rice-2.png"
-        action Jump("buy_item")
+        xpos 600
+        ypos 200
+        idle Transform("shop/rice.png", zoom=2)  
+        hover Transform("shop/rice-2.png", zoom=2)
+        action [SetVariable("item", "rice"), Jump("buy_item")]
 
     imagebutton:
-        xpos 850
-        ypos 300
-        idle "shop/wine.png"
-        hover "shop/wine-2.png"
-        action Jump("buy_item")
+        xpos 1150
+        ypos 200
+        idle Transform("shop/wine.png", zoom=2)  
+        hover Transform("shop/wine-2.png", zoom=2)
+        action [SetVariable("item", "wine"), Jump("buy_item")]
 
     imagebutton:
-        xpos 1100
-        ypos 300
-        idle "shop/book.png"
-        hover "shop/book-2.png"
-        action Jump("buy_item")
+        xpos 1500
+        ypos 400
+        idle Transform("shop/book.png", zoom=2)  
+        hover Transform("shop/book-2.png", zoom=2)
+        action [SetVariable("item", "book"), Jump("buy_item")]
 
    
     imagebutton:
         xpos 200
         ypos 700
-        idle "shop/meal.png"
-        hover "shop/meal-2.png"
-        action Jump("buy_item")
+        idle Transform("shop/meal.png", zoom=2)  
+        hover Transform("shop/meal-2.png", zoom=2)
+        action [SetVariable("item", "meal"), Jump("buy_item")]
 
     imagebutton:
-        xpos 500
+        xpos 600
         ypos 700
-        idle "shop/ring.png"
-        hover "shop/ring-2.png"
-        action Jump("buy_item")
+        idle Transform("shop/ring.png", zoom=2)  
+        hover Transform("shop/ring-2.png", zoom=2)
+        action [SetVariable("item", "ring"), Jump("buy_item")]
 
     imagebutton:
-        xpos 700
+        xpos 900
         ypos 700
-        idle "shop/light.png"
-        hover "shop/light-2.png"
-        action Jump("buy_item")
+        idle Transform("shop/light.png", zoom=2)  
+        hover Transform("shop/light-2.png", zoom=2)
+        action [SetVariable("item", "light"), Jump("buy_item")]
 
     imagebutton:
-        xpos 1000
+        xpos 1300
         ypos 600
-        idle "shop/knife.png"
-        hover "shop/knife-2.png"
-        action Jump("buy_item")
+        idle Transform("shop/knife.png", zoom=1)  
+        hover Transform("shop/knife-2.png", zoom=1)
+        action [SetVariable("item", "knife"), Jump("buy_item")]
 
     imagebutton:
-        xpos 1200
+        xpos 1500
         ypos 700
-        idle "shop/bear.png"
-        hover "shop/bear-2.png"
-        action Jump("buy_item")
+        idle Transform("shop/bear.png", zoom=2)  
+        hover Transform("shop/bear-2.png", zoom=2)
+        action [SetVariable("item", "bear"), Jump("buy_item")]
 
 
 
@@ -82,8 +87,9 @@ label buy_item:
     if money < 5:
         "У тебя не хватает денег."
     else:
+        $ items.append(item)
         "Продукт куплен!"
         $ money -= 5
-    call screen shop_screen
+    jump fokusnik_pressed
 
 

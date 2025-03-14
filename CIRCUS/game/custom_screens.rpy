@@ -18,22 +18,12 @@ screen characterUI:
         auto "UI/stats_%s.png"
         action ShowMenu("character_screen")
 
-## Screen with character screen button
-screen presentUI:
-    modal True
-    add "shop/stock.png"
-    imagebutton:
-        xoffset 200
-        yoffset 750
-        idle "shop/meal.png"
-        hover "shop/meal-2.png"
-        action [Hide("presentUI"), Jump("gift_product")]
-
 
 # If you just want to show a map that does nothing more than just an indicator, it's good to use ShowMenu.
 # If you want to navigate using the map, it's prefered to use "call".
 # When in skip mode (tab key on keyboard), this prevents the game to be skipped.
 label call_mapUI:
+    window hide
     call screen MapUI
 
 screen MapUI:
@@ -92,9 +82,9 @@ screen MapUI:
     imagebutton:
         xpos 1590
         ypos 720
-        idle "map/trailer_kris.png"
-        hover "map/trailer_kris-2.png"
-        action Jump("kris_pressed")
+        idle "map/trailer_adam.png"
+        hover "map/trailer_adam-2.png"
+        action Jump("adam_pressed")
 
     imagebutton:
         xpos 850
@@ -137,8 +127,26 @@ screen character_screen():
                 textbutton _(itan.name):
                     action SetVariable("selectedCharacter", itan)
                     xsize 640
-                textbutton _(boy1.name):
-                    action SetVariable("selectedCharacter", boy1)
+                textbutton _(dress.name):
+                    action SetVariable("selectedCharacter", dress)
+                    xsize 640
+                textbutton _(fokusnik.name):
+                    action SetVariable("selectedCharacter", fokusnik)
+                    xsize 640
+                textbutton _(clown.name):
+                    action SetVariable("selectedCharacter", clown)
+                    xsize 640
+                textbutton _(psina.name):
+                    action SetVariable("selectedCharacter", psina)
+                    xsize 640
+                textbutton _(gymnastka.name):
+                    action SetVariable("selectedCharacter", gymnastka)
+                    xsize 640
+                textbutton _(adam.name):
+                    action SetVariable("selectedCharacter", adam)
+                    xsize 640
+                textbutton _(letizia.name):
+                    action SetVariable("selectedCharacter", letizia)
                     xsize 640
             
             textbutton _("Return"):
@@ -157,23 +165,77 @@ screen character_screen():
                 xoffset -300
                 yoffset 100
                 spacing 20
-                ## Notice that we're using selectedCharacter to show the variables here.
-                text "Имя: [selectedCharacter.name]"
-                text "Группа Крови: [selectedCharacter.bloodType]"
-                text "Любимая песня: [selectedCharacter.song]"
+                if selectedCharacter == itan:
+                    text "Имя: [selectedCharacter.name]"
+                    hbox:
+                        spacing 20
+                        text "Милосердие"
+                        bar value StaticValue(selectedCharacter.mercifulness, 50) xsize 300 
+                    hbox:
+                        spacing 20
+                        text "Расчетливость"
+                        bar value StaticValue(selectedCharacter.guile, 50) xsize 300 
+                    add selectedCharacter.imageName xalign 1.0 yalign 0.5
+                else:
+                    text "Имя: [selectedCharacter.name]"
+                    text "Нравится: [selectedCharacter.favoriteItems]"
+                    text "Любимая песня: [selectedCharacter.song]"
 
-                hbox:
-                    spacing 20
-                    text "Affection"
-                    ## We're creating a bar with the max affection of 10
-                    ## You can change the max affection to 100 or whatever value you want.
-                    bar value StaticValue(selectedCharacter.affection, 20) xsize 300 
-                add selectedCharacter.imageName xalign 1.0 yalign 0.5
+                    hbox:
+                        spacing 20
+                        text "Affection"
+                        bar value StaticValue(selectedCharacter.affection, 50) xsize 300 
+                    add selectedCharacter.imageName xalign 1.0 yalign 0.5
 
 
 style character_button_text:
     xalign 0.5
 
 
+
+## Gift a present
+default page = 0 
+
+label call_invscreen:
+    call screen inventory_screen  
+    return
+
+screen inventory_screen:
+    # Get only the items for the current page
+    add "shop/stock.png"
+    $ start_index = page * 4
+    $ end_index = min(start_index + 4, len(items))
+    $ current_items = items[start_index:end_index]
+
+    for i, item in enumerate(current_items):
+        imagebutton:
+            xpos 150 + (i * 490)
+            ypos 700
+            idle "shop/"+item+".png"
+            hover "shop/"+item+"-2.png"
+            action [SetVariable("selected_item", item), Hide("inventory_screen"), Jump("gift_product")]
+
+    # Pagination Controls
+    if page > 0:
+        textbutton "{b}Previous{/b}" action [SetVariable("page", page - 1)] xpos 390 ypos 600
+    if end_index < len(items):
+        textbutton "{b}Next{/b}" action [SetVariable("page", page + 1)] xpos 1380 ypos 600
+    
+    imagebutton:
+        xpos 1700 
+        ypos 50
+        idle Transform("shop/back_button.png", zoom=0.3)  
+        hover Transform("shop/back_button.png", zoom=0.3)
+
+        action Jump("gg_pressed")   
+
+
 label gift_product:
+    if selected_item in items:
+        $ items.remove(selected_item)  # Remove the selected item
+        "Ты подарил [selected_item]!"
+    else:
+        "Ошибка: товар не найден."
     jump fokusnik_thanks
+
+

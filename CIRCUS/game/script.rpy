@@ -6,11 +6,11 @@ define Farmer = Character('Фермер', color="#ffffff")
 define Adam = Character('Адам', color="#ffffff")
 define LuVay = Character('Лю Вэй', color="#ffffff")
 define Kyle = Character("Кайл", color="#ffffff")
-define Amanda = Character("Аманда", color="#ffffff")
+define Charlotte = Character("Аманда", color="#ffffff")
 define Fred = Character("Фред", color="#ffffff")
 define Mary = Character("Мэри", color="#ffffff")
 define Gabriel = Character("Габриэль", color="#ffffff")
-define Missis = Character("Миссис Берли", color="#ffffff")
+define Madam = Character("Миссис Дюморье", color="#ffffff")
 
 
 define gg = Character("", color="#ffffff")

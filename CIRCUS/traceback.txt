@@ -1,58 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/first_chapter.rpy", line 42, in script
-    call screen centered_alert("Герой может выбирать между путем милосердия и путем расчетливости.")
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-Exception: Invalid key specifier click
+  File "game/free_time.rpy", line 214, in script
+    Missis "Здравствуй, [name]"
+Exception: Sayer 'Missis' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/first_chapter.rpy", line 42, in script
-    call screen centered_alert("Герой может выбирать между путем милосердия и путем расчетливости.")
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/ast.py", line 1987, in execute
-    self.call("execute")
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/ast.py", line 1966, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/statements.py", line 374, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/exports/statementexports.py", line 345, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/core.py", line 2218, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/core.py", line 3289, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/screen.py", line 794, in event
-    rv = self.child.event(ev, x, y, st)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/layout.py", line 1526, in event
-    rv = super(Window, self).event(ev, x, y, st)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/layout.py", line 285, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/behavior.py", line 550, in event
-    if map_event(ev, name):
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/behavior.py", line 302, in map_event
-    check_code = eval("lambda ev : " + compile_event(keysym, True), globals())
-  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/display/behavior.py", line 189, in compile_event
-    raise Exception("Invalid key specifier %s" % key)
-Exception: Invalid key specifier click
+  File "game/free_time.rpy", line 214, in script
+    Missis "Здравствуй, [name]"
+  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/ast.py", line 2586, in execute
+    Say.execute(self)
+  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/ast.py", line 583, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "/Users/apogodaeva/Documents/renpy-8.3.4-sdk/renpy/ast.py", line 472, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'Missis' is not defined.
 
 macOS-14.5-arm64-arm-64bit arm64
 Ren'Py 8.3.6.25022803
 CIRCUS 1.0
-Fri Mar 14 01:43:57 2025
+Mon Mar 17 17:28:11 2025

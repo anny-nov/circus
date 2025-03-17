@@ -3,7 +3,7 @@
 # Определение персонажей игры.
 
 define Farmer = Character('Фермер', color="#ffffff")
-define Adam = Character('Адам', color="#ffffff")
+define Adam = Character("", color="#ffffff")
 define LuVay = Character('Лю Вэй', color="#ffffff")
 define Kyle = Character("Кайл", color="#ffffff")
 define Charlotte = Character("Аманда", color="#ffffff")

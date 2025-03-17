@@ -1,6 +1,5 @@
 label gg_pressed:
     scene bg gg
-    show bg gg at Transform(zoom=1.88)
     show screen mapUI
     show screen characterUI
     while True:
@@ -10,61 +9,51 @@ label gg_pressed:
 label arena_pressed:
     hide screen mapUI
     scene bg arena
-    show bg arena at Transform(zoom=0.5)
     jump after_house_choice
 
 label warehouse_pressed:
     hide screen mapUI
     scene bg warehouse
-    show bg warehouse at Transform(zoom=1.5)
     jump after_house_choice
 
 label gymnastka_pressed:
     hide screen mapUI
     scene bg gymnastka
-    show bg gymnastka at Transform(zoom=1.88)
     jump gymnastka_house
 
 label fokusnik_pressed:
     hide screen mapUI
     scene bg fokusnik
-    show bg fokusnik at Transform(zoom=1.88)
     jump fokusnik_house
 
 label clown_pressed:
     hide screen mapUI
     scene bg clown
-    show bg clown at Transform(zoom=1.88)
     jump clown_house
 
 label adam_pressed:
     hide screen mapUI
     scene bg adam
-    show bg adam at Transform(zoom=1.88)
     jump adam_house
 
 label hoz_pressed:
     hide screen mapUI
     scene bg hoz
-    show bg hoz at Transform(zoom=3.5)
     jump hoz_house
 
 label psina_pressed:
     hide screen mapUI
     scene bg psina
-    show bg psina at Transform(zoom=1.88)
     jump psina_house
 
 label dress_pressed:
     hide screen mapUI
     scene bg dress
-    show bg dress at Transform(zoom=1.88)
     jump dress_house
 
 label fire_pressed:
     hide screen mapUI
     scene bg fire
-    show bg fire at Transform(zoom=1.88)
     jump after_house_choice
 
 
@@ -107,15 +96,16 @@ label after_house_choice:
             "Узнать [adam.name] имя":
                 ## This will update the name in the character screen       
                 $ adam.name = "Адам"
+                $ Adam.name = "Адам"
                 
                 # Notice that the first, "What do you want to know" shows the sayer's name as "stranger".s
                 # After choosing this option, the sayer is changed to "Yuki" because of the code above.
                 
-                Adam "Я Адам, я же сказал"
+                Adam "Я Адам."
 
-            "Узнать группу крови [adam.name]":
+            "Узнать, что нравится [adam.name]":
                 $ adam.bloodType = "O"
-                "Группа крови изучена, weirdo"
+                "Ты узнал."
             "Узнать [adam.name] любимую песню":
                 $ adam.song = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 "Песня выучена."
@@ -207,7 +197,7 @@ label clown_house:
 
 label adam_house:
     show adam normal
-    Gabriel "Рад тебя видеть!"
+    Adam "Рад тебя видеть!"
     hide adam normal
     show screen characterUI
     menu:
@@ -221,7 +211,7 @@ label adam_house:
 
 label hoz_house:
     show hoz normal
-    Missis "Здравствуй, [name]"
+    Madam "Здравствуй, [name]"
     hide hoz normal
     show screen characterUI
     menu:

@@ -9,9 +9,8 @@ define Kyle = Character("Кайл", color="#ffffff")
 define Charlotte = Character("Аманда", color="#ffffff")
 define Fred = Character("Фред", color="#ffffff")
 define Mary = Character("Мэри", color="#ffffff")
-define Gabriel = Character("Габриэль", color="#ffffff")
-define Madam = Character("Миссис Дюморье", color="#ffffff")
-
+define Madam = Character("Женщина", color="#ffffff")
+define Noname = Character("Неизвестный", color="#ffffff")
 
 define gg = Character("", color="#ffffff")
 

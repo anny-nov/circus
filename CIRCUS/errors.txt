@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/first_chapter.rpy", line 125: expected statement.
-    name = "Луиджи" 
-         ^
-
-File "game/first_chapter.rpy", line 126: expected statement.
-    itan.name = "Луиджи"
-              ^
+File "game/first_chapter.rpy", line 280: invalid syntax
+    hoz.imageName = hoz ava
+                         ^
 
 Ren'Py Version: Ren'Py 8.3.6.25022803
-Fri Mar 14 02:02:55 2025
+Wed Mar 19 11:57:35 2025

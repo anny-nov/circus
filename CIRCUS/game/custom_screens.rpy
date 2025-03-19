@@ -36,6 +36,8 @@ screen MapUI:
         idle "map/arena.png"
         hover "map/arena-2.png"
         action Jump("arena_pressed")
+        hovered SetScreenVariable("tooltip_text", "Главный шатер")
+        unhovered SetScreenVariable("tooltip_text", "")
 
     imagebutton:
         xpos 720
@@ -43,6 +45,8 @@ screen MapUI:
         idle "map/fire.png"
         hover "map/fire-2.png"
         action Jump("fire_pressed")
+        hovered SetScreenVariable("tooltip_text", "Костер")
+        unhovered SetScreenVariable("tooltip_text", "")
 
     imagebutton:
         xpos 560
@@ -50,6 +54,17 @@ screen MapUI:
         idle "map/warehouse.png"
         hover "map/warehouse-2.png"
         action Jump("warehouse_pressed")
+        hovered SetScreenVariable("tooltip_text", "Склад")
+        unhovered SetScreenVariable("tooltip_text", "")
+    
+    imagebutton:
+        xpos 400
+        ypos 800
+        idle "map/food.png"
+        hover "map/food-2.png"
+        action Jump("food_pressed")
+        hovered SetScreenVariable("tooltip_text", "Кухня")
+        unhovered SetScreenVariable("tooltip_text", "")
    
     imagebutton:
         xpos 1200
@@ -57,13 +72,17 @@ screen MapUI:
         idle "map/trailer_gg.png"
         hover "map/trailer_gg-2.png"
         action Jump("gg_pressed")
+        hovered SetScreenVariable("tooltip_text", "Мой Дом")
+        unhovered SetScreenVariable("tooltip_text", "")
 
     imagebutton:
-        xpos 300
-        ypos 800
+        xpos 100
+        ypos 780
         idle "map/trailer_dress.png"
         hover "map/trailer_dress-2.png"
         action Jump("dress_pressed")
+        hovered SetScreenVariable("tooltip_text", "Дом Дрессировщицы")
+        unhovered SetScreenVariable("tooltip_text", "")
 
     imagebutton:
         xpos 1300
@@ -71,6 +90,8 @@ screen MapUI:
         idle "map/trailer_psina.png"
         hover "map/trailer_psina-2.png"
         action Jump("psina_pressed")
+        hovered SetScreenVariable("tooltip_text", "Дом Жонглера")
+        unhovered SetScreenVariable("tooltip_text", "")
 
     imagebutton:
         xpos 250
@@ -78,6 +99,8 @@ screen MapUI:
         idle "map/trailer_gymnastka.png"
         hover "map/trailer_gymnastka-2.png"
         action Jump("gymnastka_pressed")
+        hovered SetScreenVariable("tooltip_text", "Дом Гимнастки")
+        unhovered SetScreenVariable("tooltip_text", "")
 
     imagebutton:
         xpos 1590
@@ -85,6 +108,8 @@ screen MapUI:
         idle "map/trailer_adam.png"
         hover "map/trailer_adam-2.png"
         action Jump("adam_pressed")
+        hovered SetScreenVariable("tooltip_text", "Дом Силача")
+        unhovered SetScreenVariable("tooltip_text", "")
 
     imagebutton:
         xpos 850
@@ -92,6 +117,9 @@ screen MapUI:
         idle "map/trailer_fokusnik.png"
         hover "map/trailer_fokusnik-2.png"
         action Jump("fokusnik_pressed")
+        hovered SetScreenVariable("tooltip_text", "Дом Фокусника")
+        unhovered SetScreenVariable("tooltip_text", "")
+
 
     imagebutton:
         xpos 1010
@@ -99,6 +127,9 @@ screen MapUI:
         idle "map/trailer_clown.png"
         hover "map/trailer_clown-2.png"
         action Jump("clown_pressed")
+        hovered SetScreenVariable("tooltip_text", "Дом Клоуна")
+        unhovered SetScreenVariable("tooltip_text", "")
+
 
     imagebutton:
         xpos 1150
@@ -106,6 +137,21 @@ screen MapUI:
         idle "map/trailer_hoz.png"
         hover "map/trailer_hoz-2.png"
         action Jump("hoz_pressed")
+        hovered SetScreenVariable("tooltip_text", "Мадам Дюморье")
+        unhovered SetScreenVariable("tooltip_text", "")
+
+    
+    default tooltip_text = ""
+
+    if tooltip_text:
+        frame:
+            xpos 850
+            ypos 50
+            background "#000000AA"
+            padding (10, 5)
+            text tooltip_text:
+                size 30
+                color "#FFFFFF"
 
 
         
@@ -148,6 +194,9 @@ screen character_screen():
                 textbutton _(letizia.name):
                     action SetVariable("selectedCharacter", letizia)
                     xsize 640
+                textbutton _(hoz.name):
+                    action SetVariable("selectedCharacter", hoz)
+                    xsize 640
             
             textbutton _("Return"):
                 yalign 0.5
@@ -170,21 +219,21 @@ screen character_screen():
                     hbox:
                         spacing 20
                         text "Милосердие"
-                        bar value StaticValue(selectedCharacter.mercifulness, 50) xsize 300 
+                        bar value StaticValue(selectedCharacter.mercifulness, 100) xsize 300 
                     hbox:
                         spacing 20
                         text "Расчетливость"
-                        bar value StaticValue(selectedCharacter.guile, 50) xsize 300 
+                        bar value StaticValue(selectedCharacter.guile, 100) xsize 300 
                     add selectedCharacter.imageName xalign 1.0 yalign 0.5
                 else:
                     text "Имя: [selectedCharacter.name]"
                     text "Нравится: [selectedCharacter.favoriteItems]"
-                    text "Любимая песня: [selectedCharacter.song]"
+                    text "Не нравится: [selectedCharacter.hatedItems]"
 
                     hbox:
                         spacing 20
                         text "Affection"
-                        bar value StaticValue(selectedCharacter.affection, 50) xsize 300 
+                        bar value StaticValue(selectedCharacter.affection, 100) xsize 300 
                     add selectedCharacter.imageName xalign 1.0 yalign 0.5
 
 

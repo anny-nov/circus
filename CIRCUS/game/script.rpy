@@ -2,13 +2,13 @@
 
 # Определение персонажей игры.
 
-define Farmer = Character('Фермер', color="#ffffff")
-define Adam = Character("", color="#ffffff")
-define LuVay = Character('Лю Вэй', color="#ffffff")
-define Kyle = Character("Кайл", color="#ffffff")
-define Charlotte = Character("Аманда", color="#ffffff")
-define Fred = Character("Фред", color="#ffffff")
-define Mary = Character("Мэри", color="#ffffff")
+define Farmer = Character('Мужчина', color="#ffffff")
+define Adam = Character("Мужчина", color="#ffffff")
+define LuVay = Character('Мужчина', color="#ffffff")
+define Kyle = Character("Мужчина", color="#ffffff")
+define Charlotte = Character("Девушка", color="#ffffff")
+define Fred = Character("Мужчина", color="#ffffff")
+define Mary = Character("Девушка", color="#ffffff")
 define Madam = Character("Женщина", color="#ffffff")
 define Noname = Character("Неизвестный", color="#ffffff")
 

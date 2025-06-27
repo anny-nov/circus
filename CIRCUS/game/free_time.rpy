@@ -1,65 +1,112 @@
 label gg_pressed:
-    scene bg gg
-    show screen mapUI
-    show screen characterUI
-    while True:
-        "Свободное время! Сходи к кому-нибудь в гости!"
-        "ало"
+    if meeting_time:
+        jump meeting_gg_pressed
+    else:
+        scene bg gg
+        show screen mapUI
+        show screen characterUI
+        while True:
+            "Свободное время! Сходи к кому-нибудь в гости!"
+            "ало"
 
 label arena_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg arena
-    jump after_house_choice
+    if meeting_time:
+        jump meeting_arena
+    else:
+        jump after_house_choice
 
 label warehouse_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg warehouse
-    jump after_house_choice
+    if meeting_time:
+        jump meeting_warehouse
+    else:
+        jump after_house_choice
 
 label food_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg food
-    jump after_house_choice
+    if meeting_time:
+        jump meeting_food
+    else:
+        jump after_house_choice
 
 label gymnastka_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg gymnastka
-    jump gymnastka_house
+    if meeting_time:
+        jump meeting_gymnastka
+    else:
+        jump gymnastka_house
 
 label fokusnik_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg fokusnik
-    jump fokusnik_house
+    if meeting_time:
+        jump meeting_fokusnik
+    else:
+        jump fokusnik_house
 
 label clown_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg clown
-    jump clown_house
+    if meeting_time:
+        jump meeting_clown
+    else:
+        jump clown_house
 
 label adam_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg adam
-    jump adam_house
+    if meeting_time:
+        jump meeting_adam
+    else:
+        jump adam_house
 
 label hoz_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg hoz
-    jump hoz_house
+    if meeting_time:
+        jump meeting_hoz
+    else:
+        jump hoz_house
 
 label psina_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg psina
-    jump psina_house
+    if meeting_time:
+        jump meeting_psina
+    else:
+        jump psina_house
 
 label dress_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg dress
-    jump dress_house
+    if meeting_time:
+        jump meeting_dress
+    else:
+        jump dress_house
 
 label fire_pressed:
     hide screen mapUI
+    hide screen characterUI
     scene bg fire
-    jump after_house_choice
+    if meeting_time:
+        jump meeting_fire
+    else:
+        jump after_house_choice
 
 
 label after_house_choice:

@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/first_chapter.rpy", line 280: invalid syntax
-    hoz.imageName = hoz ava
-                         ^
+File "game/chapter1/meeting.rpy", line 337: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/chapter1/meeting.rpy", line 338: expected statement.
+    "Отскочить в сторону.":
+                          ^
+
+File "game/chapter1/meeting.rpy", line 347: expected statement.
+    "Остаться на месте.":
+                        ^
 
 Ren'Py Version: Ren'Py 8.3.6.25022803
-Wed Mar 19 11:57:35 2025
+Thu Jun 26 12:33:10 2025

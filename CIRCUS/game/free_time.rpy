@@ -39,37 +39,41 @@ label food_pressed:
 label gymnastka_pressed:
     hide screen mapUI
     hide screen characterUI
-    scene bg gymnastka
     if meeting_time:
+        scene bg sunny trailer
         jump meeting_gymnastka
     else:
+        scene bg gymnastka
         jump gymnastka_house
 
 label fokusnik_pressed:
     hide screen mapUI
     hide screen characterUI
-    scene bg fokusnik
     if meeting_time:
+        scene bg sunny trailer
         jump meeting_fokusnik
     else:
+        scene bg fokusnik
         jump fokusnik_house
 
 label clown_pressed:
     hide screen mapUI
     hide screen characterUI
-    scene bg clown
     if meeting_time:
+        scene bg sunny trailer
         jump meeting_clown
     else:
+        scene bg clown
         jump clown_house
 
 label adam_pressed:
     hide screen mapUI
     hide screen characterUI
-    scene bg adam
     if meeting_time:
+        scene bg sunny trailer
         jump meeting_adam
     else:
+        scene bg adam
         jump adam_house
 
 label hoz_pressed:
@@ -84,19 +88,21 @@ label hoz_pressed:
 label psina_pressed:
     hide screen mapUI
     hide screen characterUI
-    scene bg psina
     if meeting_time:
+        scene bg sunny trailer
         jump meeting_psina
     else:
+        scene bg psina
         jump psina_house
 
 label dress_pressed:
     hide screen mapUI
     hide screen characterUI
-    scene bg dress
     if meeting_time:
+        scene bg sunny trailer
         jump meeting_dress
     else:
+        scene bg dress
         jump dress_house
 
 label fire_pressed:

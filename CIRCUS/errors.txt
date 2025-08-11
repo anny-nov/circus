@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/chapter1/meeting.rpy", line 337: menu statement expects a non-empty block.
-    menu:
-        ^
-
-File "game/chapter1/meeting.rpy", line 338: expected statement.
-    "Отскочить в сторону.":
-                          ^
-
-File "game/chapter1/meeting.rpy", line 347: expected statement.
-    "Остаться на месте.":
-                        ^
+File "game/chapter1/first_chapter.rpy", line 747: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    gg "{i}Наиприятнейшие здесь жильцы.{/i}"
+    ^
 
 Ren'Py Version: Ren'Py 8.3.6.25022803
-Thu Jun 26 12:33:10 2025
+Wed Aug  6 00:40:04 2025
